@@ -1,7 +1,7 @@
 
 //state存放全局共用的数据
 
-let defaultCity = '武汉'
+let defaultCity = '北京'
 try {
   if(localStorage.city){
     defaultCity = localStorage.city
