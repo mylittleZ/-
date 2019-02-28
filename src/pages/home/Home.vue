@@ -39,8 +39,8 @@ export default {
   },
   methods:{
     getHomeInfo(){
-      axios.get('/api/index.json?city=' + this.city)           //获取ajax数据
-        .then(this.getHomeIofoSucc)
+      axios.get('/api/index.json?city=' + this.city)        //请求url获取ajax数据
+        .then(this.getHomeIofoSucc)   //axios返回的结果是一个promise对象所以可以用then
     },
     getHomeIofoSucc (res){
       res = res.data
@@ -51,7 +51,7 @@ export default {
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
-     
+
     }
   },
   mounted () {                   //生命周期函数
@@ -64,7 +64,7 @@ export default {
       this.getHomeInfo()
     }
   }
-  
+
 }
 </script>
 
