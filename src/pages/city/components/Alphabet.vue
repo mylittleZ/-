@@ -28,11 +28,12 @@ export default {
   data (){
     return {
       touchStatus:false,
-      startY:0,
-      timer:null
+      startY:0, //性能优化
+      timer:null  //性能优化
     }
   },
-  updated (){           //性能优化
+  updated (){
+    // 性能优化1：A的offsetTop这个值一直都是固定的，所以当页面数据被更新重现渲染的时候再来执行，而不是每次一滑动就执行
     this.startY=this.$refs['A'][0].offsetTop
   },
   methods:{
@@ -48,16 +49,18 @@ export default {
       if (this.touchStatus){
         if(this.timer){
           clearTimeout(this.timer)  //若已经存在timer则清除掉
-        }   //函数节流方式，减小这个handleTouchMove函数的执行频率从而提高网页性能
-        this.timer =setTimeout(() =>{
-          // const startY = this.$refs['A'][0].offsetTop
+        }
+        //性能优化2：函数节流方式，减小这个handleTouchMove函数的执行频率从而提高网页性能
+        this.timer =setTimeout(() =>{ //否则创建timer
+          // const startY = this.$refs['A'][0].offsetTop 放入生命周期钩子中执行
           const touchY = e.touches[0].clientY - 79
           const index = Math.floor((touchY-this.startY) / 20)
           if (index >= 0 && index<this.letters.length){
             this.$emit('change',this.letters[index])
           }
         },16)
-       
+        //假设在16ms之间又一次做了手指滚动，则会把上一次执行的操作给清除掉重新执行你这次要做的事情
+
       }
     },
     handleTouchEnd (){
