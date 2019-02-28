@@ -27,11 +27,12 @@ export default {
     }
   },
   computed:{
+    //把一维的9条数组拆分成一个二维的数组，根据数据项不同来自动生成页码
     pages (){
       const pages = []
       this.list.forEach((item,index) => {
         const page = Math.floor(index/8)
-        if(!pages[page]){
+        if(!pages[page]){ //若算出来页码数不存在则创造一个新页码
           pages[page] = []
         }
         pages[page].push(item)
@@ -39,7 +40,7 @@ export default {
       return pages;
     }
   }
-  
+
 }
 </script>
 
