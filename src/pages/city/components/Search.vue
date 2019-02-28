@@ -30,8 +30,8 @@ export default {
   },
   methods: {       //vuex共享数据的使用
     handleCityClick (city){
-      this.$store.dispatch('changeC',city)
-      this.$router.push('/')
+      this.$store.dispatch('changeC',city) //vuex
+      this.$router.push('/') //页面跳转
     }
   },
   computed:{                   //避免在模板里写逻辑所以在computed里写
@@ -52,12 +52,12 @@ export default {
         const result = []
         for (let i in this.cities){
           this.cities[i].forEach((value)=>{
-            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1){
-              result.push(value)
-            }
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1)
+           //如果从spell或name里能够搜索到此关键词，就把这一项添加到result中
+            {result.push(value)}
           })
         }
-        this.list = result
+        this.list = result //返回的结果为list
       },100)
     }
   },

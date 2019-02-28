@@ -47,8 +47,8 @@ export default {
   },
   methods: {       //vuex共享数据的使用
     handleCityClick (city){
-      this.$store.dispatch('changeC',city)
-      this.$router.push('/')
+      this.$store.dispatch('changeC',city) //vuex
+      this.$router.push('/') //实现页面跳转
     }
   },
   mounted () {
