@@ -54,12 +54,15 @@ export default {
 
     }
   },
-  mounted () {                   //生命周期函数
+  mounted () {
     this.lastCity = this.city    //lastcity临时缓冲变量
     this.getHomeInfo()
   },
-  activated (){    //当页面重新被显示的时候activated就会被执行 keepalive新增的
-    if (this.lastCity !== this.city){//判断前后两次显示的城市是否一样，不一样的话就去重新请求一次ajax，因为不同的城市显示的页面要不一样，所以要重新请求ajax
+  activated (){
+    //使用keep-alive时会多出来一个生命周期函数，当页面重新被显示的时候activated就会被执行
+    // 因为不同的城市显示的页面需要不一样，所以要重新请求ajax
+    if (this.lastCity !== this.city){
+      // 判断前后两次显示的城市是否一样，不一样的话就去重新请求一次ajax
       this.lastCity = this.city
       this.getHomeInfo()
     }

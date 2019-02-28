@@ -3,7 +3,7 @@
 
 let defaultCity = '北京'
 try {
-  if(localStorage.city){
+  if(localStorage.city){ //localStorage
     defaultCity = localStorage.city
   }
 }catch (e) {}
