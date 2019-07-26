@@ -5,13 +5,12 @@
 ## 启动项目
 
 ``` bash
-# install dependencies
+
+# 安装依赖
 yarn / npm install   推荐yarn
 
-# serve with hot reload at localhost:8080
-、yarn/npm run dev
+# 端口监听在localhost:8080
+yarn/npm run dev
 
-# build for production with minification
-npm run build
 
 
