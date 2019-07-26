@@ -26,7 +26,7 @@ export default {
   methods: {
     handleScroll () {
       const top = document.documentElement.scrollTop
-      if (top > 60) {
+      if (top > 60) {   //渐隐渐现
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity  //让opacity最大值等于1
         this.opacityStyle = { opacity }

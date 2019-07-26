@@ -1,6 +1,6 @@
 <template>
   <transition>
-    <!--slot代表的就是common-gallary-->
+      <!--slot代表的就是common-gallary-->
     <slot></slot>
   </transition>
 </template>

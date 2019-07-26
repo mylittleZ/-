@@ -8,8 +8,10 @@
         {{this.bannerImgs.length}}</div>
       </div>
     </div>
-    <fade-animation>
-      <common-gallary :imgs="bannerImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <fade-animation>  <!--动画封装-->
+      <common-gallary
+        :imgs="bannerImgs" v-show="showGallary" @close="handleGallaryClose">
+      </common-gallary><!--作为插槽的形式-->
     </fade-animation>
   </div>
 </template>
